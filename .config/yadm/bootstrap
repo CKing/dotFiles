@@ -11,12 +11,6 @@ install_package yadm transcrypt neovim eza pet fish nerdfetch keychain
 
 yadm submodule update --init --recursive
 yadm decrypt
-
-if ! yadm transcrypt --display >/dev/null 2>&1; then
-	yadm transcrypt -i me@kurabloodlust.eu
-	yadm checkout -- ~
-fi
-
 yadm remote set-url origin git@github.com:cking/dotfiles.git
 
 echo "Changing shell to fish..."
