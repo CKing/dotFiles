@@ -1,4 +1,5 @@
 bindsym $mod+d exec fuzzel
+bindsym $mod+Shift+d exec bemenu-run -p "$" -b -f
 
 bindsym $mod+l exec wlogout
 
@@ -6,7 +7,7 @@ exec wl-paste --watch cliphist store
 bindsym $mod+v exec cliphist list | tofi | cliphist decode | wl-copy
 bindsym $mod+Shift+v exec cliphist list | tofi | cliphist delete
 
-bindsym $mod+Return exec footclient
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 

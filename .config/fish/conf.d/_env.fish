@@ -6,7 +6,8 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 
 # wayland environments
 if [ "$XDG_SESSION_TYPE" = "wayland" ]
-    set -gx MOZ_ENABLE_WAYLAND 1
+	#    set -gx MOZ_ENABLE_WAYLAND 1
+	#    firefox seems to hate dis?
     set -gx QT_QPA_PLATFORM wayland
 end
 
