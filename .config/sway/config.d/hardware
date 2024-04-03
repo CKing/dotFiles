@@ -11,7 +11,7 @@ input * {
 input type:touchpad {
     drag enabled
     dwt enabled
-    events disabled_on_external_mouse
+    #events disabled_on_external_mouse
     natural_scroll enabled
     scroll_method two_finger
     tap enabled

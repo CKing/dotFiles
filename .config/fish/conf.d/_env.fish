@@ -34,3 +34,5 @@ set -gx EDITOR /usr/bin/nvim
 set -gx VISUAL /usr/bin/nvim
 set -gx PAGER /usr/bin/less
 set -gx GPG_TTY (tty)
+
+zap .local/share/bun/bin .local/share/pnpm .local/share/npm/bin .local/share/JetBrains/Toolbox/scripts .local/bin .local/share/go/pkg/bin .dotnet .local/share/cargo/bin

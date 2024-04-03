@@ -7,11 +7,17 @@ cd "$yadm"
 
 . "$yadm"/functions.sh
 
-install_package yadm neovim eza pet fish nerdfetch keychain
+install_package yadm neovim eza pet fish nerdfetch keychain zoxide bat
 
 yadm submodule update --init --recursive
 yadm decrypt
 yadm remote set-url origin git@github.com:cking/dotfiles.git
 
 echo "Changing shell to fish..."
-chsh -s "$( which fish )"
+fish=$( grep fish /etc/shells )
+if [ "$fish" = "" ]; then
+	echo " - Adding fish to /etc/shells"
+	fish=$( command -v fish )
+	echo $fish | _sudo tee -a /etc/shells > /dev/null
+fi
+chsh -s "$fish"

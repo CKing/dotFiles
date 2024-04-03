@@ -10,3 +10,6 @@ nerdfetch.pkg=app-misc/nerdfetch
 nerdfetch.repo=guru
 nerdfetch.unmask=keywords
 keychain.pkg=net-misc/keychain
+bat.pkg=sys-apps/bat
+zoxide.pkg=app-shells/zoxide
+zoxide.unmask=keywords
