@@ -1,0 +1,62 @@
+#!/bin/bash
+
+if [[ -z $GODOT_HOME ]]; then
+	if [[ -z $XDG_STATE_HOME ]]; then
+		XDG_STATE_HOME=$HOME/.local/state
+	fi
+
+	GODOT_HOME=$XDG_STATE_HOME/godot
+fi
+
+echo "GODOT_HOME=$GODOT_HOME"
+mkdir -p $GODOT_HOME
+cd $GODOT_HOME
+
+require_app() {
+	app="$1"
+
+	if [[ -z $(command -v $app) ]]; then
+		echo 'Missing $app, please install $app'
+		exit 1
+	fi
+}
+
+curl_gh() {
+	curl -sSL \
+		-H "Accept: application/vnd.github+json" \
+		-H "X-GitHub-Api-Version: 2022-11-28" \
+		https://api.github.com/repos/"$1"
+}
+
+require_app curl
+require_app jq
+require_app sort
+require_app head
+
+local_version=""
+if [[ -f version ]]; then
+	local_version=$(cat version)
+fi
+
+latest_release_json=$(curl_gh "godotengine/godot/releases/latest")
+remote_version=$(echo $latest_release_json | jq -r .tag_name)
+
+newest_version=$(echo -e "$local_version\n$remote_version" | sort -rV | head -n1)
+
+if [[ "$newest_version" != "$local_version" ]]; then
+	echo "Godot out of date, updating..."
+	download_url=$(echo $latest_release_json | jq -r '.assets[] | select(.name | test("mono_linux_x86_64")) | .browser_download_url')
+	curl -sSLo godot.zip "$download_url"
+
+	unzip -qo godot.zip 
+	rm godot.zip
+	mv Godot_*/GodotSharp GodotSharp
+	mv Godot_*/Godot* Godot
+	rmdir Godot_*
+
+	echo $newest_version > version
+
+	echo "Updated to $newest_version"
+fi
+
+exec $GODOT_HOME/Godot

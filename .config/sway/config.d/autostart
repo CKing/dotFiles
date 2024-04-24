@@ -1,5 +1,7 @@
 exec wpaperd
 
+exec playerctld daemon
+exec wobd
 exec wl-paste --primary --watch wl-copy
 exec wl-paste --watch cliphist store
 exec mako --font ProggyVector --background-color "#3c304caa" --text-color "#ffffff" --border-color "#ffffff" --icons 1 --markup 1 --actions 1 --history 1 --default-timeout 30000 --ignore-timeout 0 --height 300

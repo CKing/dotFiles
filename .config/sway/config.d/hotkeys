@@ -67,4 +67,17 @@ bindsym Print exec shotman -c output
 bindsym Alt+Print exec shotman -c window
 bindsym Control+Print exec shotman -c region
 
+bindsym XF86AudioMute exec volctl %
+bindsym XF86AudioLowerVolume exec volctl -5%
+bindsym XF86AudioRaiseVolume exec volctl +5%
+
+bindsym XF86MonBrightnessDown exec blctl 5%-
+bindsym XF86MonBrightnessUp exec blctl 5%+
+
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+
+bindsym XF86Tools exec pcycle
+
 bindsym $mod+x exec swaymsg exec ~/.local/bin/sway-prop
