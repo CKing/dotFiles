@@ -1,0 +1,7 @@
+#!/bin/bash 
+
+pipe=/tmp/wob-$USER-$WAYLAND_DISPLAY
+
+if [[ -p $pipe ]]; then
+	echo "$@" > $pipe
+fi

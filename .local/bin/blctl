@@ -1,0 +1,6 @@
+#!/bin/bash
+
+brightnessctl s $1
+
+brightness=$(brightnessctl -m i | cut -d, -f4 | grep -Eo '[1234567890]+')
+wobc "$brightness" brightness

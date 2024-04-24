@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pipe=/tmp/wob-$USER-$WAYLAND_DISPLAY
+
+killall wob 2>/dev/null || true
+rm $pipe 2>/dev/null || true
+mkfifo $pipe
+tail -f $pipe | wob

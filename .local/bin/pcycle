@@ -1,0 +1,20 @@
+#!/bin/bash
+set -eo pipefail
+
+mode=$(powerprofilesctl get)
+new_mode="nopenopenope"
+
+case $mode in
+	balanced)
+		new_mode=performance
+		;;
+	performance)
+		new_mode=power-saver
+		;;
+	power-saver)
+		new_mode=balanced
+esac
+
+powerprofilesctl set $new_mode
+
+notify-send "Power: $mode > $new_mode" -t 1000

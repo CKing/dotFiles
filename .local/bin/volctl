@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ "$1" == '%' ]]; then
+	pactl set-sink-mute "@DEFAULT_SINK@" toggle
+else
+	pactl set-sink-volume "@DEFAULT_SINK@" "$1"
+fi
+
+if (pactl get-sink-mute "@DEFAULT_SINK@" | grep yes >/dev/null); then
+	wobc 0 volume
+	exit
+fi
+
+vol=$(pactl --format json get-sink-volume "@DEFAULT_SINK@" | head -n1 | cut -d/ -f2 | grep -Eo '[1234567890]+')
+wobc "$vol" volume
