@@ -3,10 +3,8 @@ if not status is-interactive
 end
 
 if type -q gnome-keyring-daemon
-	replay 'eval $(gnome-keyring-daemon -s 2>/dev/null) && export SSH_AUTH_SOCK'
+	replay 'eval $(gnome-keyring-daemon -s -d -c pkcs11,secrets,ssh 2>/dev/null) && export SSH_AUTH_SOCK'
 end
-
-gpgconf --launch gpg-agent
 
 keychain --dir $XDG_RUNTIME_DIR --absolute --ignore-missing --agents ssh,gpg --inherit any --quiet
 replay "source $XDG_RUNTIME_DIR/.keychain/*-sh-gpg && export GPG_AGENT_INFO"

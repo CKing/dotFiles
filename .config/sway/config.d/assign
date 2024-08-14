@@ -1,26 +1,28 @@
+assign [app_id="firefox"] $ws2
 assign [app_id="sublime_text"] $ws3
 assign [app_id="lutris"] $ws4
+assign [class="steam"] $ws4
 assign [app_id="mpv"] $ws6
 assign [class="discord"] $ws8
-
-for_window [class="^.*"] inhibit_idle fullscreen
-for_window [app_id="^.*"] inhibit_idle fullscreen
-
-# firefox
-assign [app_id="firefox"] $ws2
-for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
-for_window [app_id="firefox" title="Developer Tools -"] floating enable
-
-# messenger
 assign [app_id="org.telegram.desktop"] $ws8
+assign [app_id="org.telegram"] $ws8
+assign [class="vesktop"] $ws8
 
-# steam
-assign [class="steam"] $ws4
-for_window [class="steam" title="Steam - News.*"] floating enable
+for_window {
+	[all] inhibit_idle fullscreen
 
-# fcitx
-no_focus [title="im-emoji-picker"]
+	[title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 1030 height 710
 
-#gaymez
-for_window [class="awakened-poe-trade"] floating enable
-for_window [app_id="^Yad"] floating enable
+	[shell="xwayland"] title_format "[X] %title"
+
+	[app_id="firefox" title="Picture-in-Picture"] floating enable
+	[app_id="firefox" title="Developer Tools -"] floating enable
+	[window_role="pop-up"] floating enable
+	[window_role="bubble"] floating enable
+	[window_role="dialog"] floating enable
+	[window_type="dialog"] floating enable
+	[class="steam" title="Steam - News.*"] floating enable
+
+	[title="maybe with mark?"] opacity 0.6
+	[title="some overlay shit"] mark --add game_overlay
+}

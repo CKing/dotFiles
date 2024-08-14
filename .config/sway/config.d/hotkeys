@@ -6,7 +6,7 @@ bindsym $mod+l exec wlogout
 bindsym $mod+v exec cliphist list | tofi | cliphist decode | wl-copy
 bindsym $mod+Shift+v exec cliphist list | tofi | cliphist delete
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec wezterm
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 

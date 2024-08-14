@@ -70,3 +70,5 @@
 	versiontag =
 [pull]
 	rebase = true
+[credential]
+	helper = /usr/bin/git-credential-libsecret

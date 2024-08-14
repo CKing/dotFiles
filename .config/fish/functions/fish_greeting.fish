@@ -2,7 +2,7 @@ function fish_greeting
 	set -l context (_fish_greeting_contexts)
 
     if not contains ide $context
-    	nerdfetch
+        fastfetch -l small -s title:separator:os:kernel:packages:uptime:break:board:cpu:gpu:break:processes:memory:swap:disk:wifi
     end
 
     _fish_greeting_powered
@@ -62,3 +62,4 @@ function _fish_greeting_contexts_all
 		echo jetbrains
 	end
 end
+

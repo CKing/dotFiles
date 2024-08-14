@@ -7,7 +7,7 @@ cd "$yadm"
 
 . "$yadm"/functions.sh
 
-install_package yadm neovim eza pet fish nerdfetch keychain zoxide bat
+install_package yadm neovim eza pet fish fastfetch keychain zoxide bat
 
 yadm submodule update --init --recursive
 yadm decrypt
