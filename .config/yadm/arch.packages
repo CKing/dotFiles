@@ -11,3 +11,4 @@ nerdfetch.aur=1
 keychain.pkg=keychain
 zoxide.pkg=zoxide
 bat.pkg=bat
+fastfetch.pkg=fastfetch
