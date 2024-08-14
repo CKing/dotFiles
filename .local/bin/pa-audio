@@ -1,0 +1,17 @@
+#!/bin/sh
+
+all_sinks=$(pactl -f json list sinks)
+num_sinks=$(echo "$all_sinks" | jq -r length)
+current_sink=$(pactl get-default-sink)
+current_index=$(echo "$all_sinks" | jq -r "map(.name == \"$current_sink\") | index(true)")
+next_index=$(($current_index + 1))
+
+if [ "$next_index" -ge "$num_sinks" ]; then
+	next_index=0
+fi
+
+next_sink=$(echo "$all_sinks" | jq -r ".[$next_index].name")
+next_sink_name=$(echo "$all_sinks" | jq -r ".[$next_index].description")
+
+pactl set-default-sink "$next_sink"
+notify-send -t 2000 -u low "Changed Sink" "New Sink: $next_sink_name"
