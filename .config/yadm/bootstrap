@@ -14,7 +14,7 @@ yadm decrypt
 yadm remote set-url origin git@github.com:cking/dotfiles.git
 
 echo "Changing shell to fish..."
-fish=$( grep fish /etc/shells )
+fish=$( grep fish /etc/shells | head -n1 )
 if [ "$fish" = "" ]; then
 	echo " - Adding fish to /etc/shells"
 	fish=$( command -v fish )

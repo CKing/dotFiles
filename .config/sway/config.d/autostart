@@ -1,6 +1,5 @@
 exec wpaperd
 
-exec gentoo-pipewire-launcher restart
 exec playerctld daemon
 exec wobd
 exec wl-paste --primary --watch wl-copy
@@ -13,3 +12,4 @@ exec ~/Applications/appimagelauncher.AppImage appimagelauncherd
 exec_always gnome-keyring-daemon --replace --components=pkcs11,secrets,ssh
 exec_always dbus-update-activation-environment --all
 exec xsettingsd
+exec autotiling-rs

@@ -35,6 +35,7 @@
 [core]
 	editor = nvim
 	autocrlf = input
+	pager = delta
 [push]
 	default = matching
 [commit]
@@ -71,4 +72,8 @@
 [pull]
 	rebase = true
 [credential]
-	helper = /usr/bin/git-credential-libsecret
+	helper = /usr/lib/git-core/git-credential-libsecret
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navvigate = true
