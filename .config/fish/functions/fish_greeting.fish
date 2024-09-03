@@ -17,7 +17,13 @@ function _fish_greeting_powered
 		"logic" \
 		"electromagnetic cheese" \
 		"shattered hopes and dreams" \
-		"shrimps"
+		"shrimps" \
+		"a herd of tiny unicorns" \
+		"a sentient potato" \
+		"zero bugs, just features" \
+		"a team of procrastinating pandas" \
+		"a sentient pile of spaghetti code" \
+		"blank bullets"
 
 	set -l chosen_msg (random)"%"(count $powered_msgs)
 	set -l chosen_msg $powered_msgs[(math $chosen_msg"+1")]
