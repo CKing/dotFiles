@@ -1,4 +1,6 @@
 assign [app_id="firefox"] $ws2
+assign [app_id="librewolf"] $ws2
+assign [app_id="LibreWolf"] $ws2
 assign [app_id="sublime_text"] $ws3
 assign [app_id="lutris"] $ws4
 assign [class="steam"] $ws4
@@ -10,13 +12,13 @@ assign [class="vesktop"] $ws8
 
 for_window {
 	[all] inhibit_idle fullscreen
-
 	[title="(?:Open|Save) (?:File|Folder|As)"] floating enable, resize set width 1030 height 710
-
 	[shell="xwayland"] title_format "[X] %title"
 
-	[app_id="firefox" title="Picture-in-Picture"] floating enable
-	[app_id="firefox" title="Developer Tools -"] floating enable
+	[app_id="LibreWolf" title="Picture-in-Picture"] floating enable
+	[app_id="LibreWolf" title="Developer Tools -"] floating enable
+	[app_id="librewolf" title="Picture-in-Picture"] floating enable
+	[app_id="librewolf" title="Developer Tools -"] floating enable
 	[window_role="pop-up"] floating enable
 	[window_role="bubble"] floating enable
 	[window_role="dialog"] floating enable

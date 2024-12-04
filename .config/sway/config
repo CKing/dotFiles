@@ -1,5 +1,6 @@
 set $mod Mod4
 set $term alacritty
+mouse_warping none
 
 bar {
 	swaybar_command waybar

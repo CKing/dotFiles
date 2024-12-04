@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if which handlr >/dev/null 2>&1; then
-	handlr open "$@"
-else
-	/usr/bin/xdg-open "$@"
-fi

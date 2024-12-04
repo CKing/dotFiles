@@ -2,14 +2,9 @@ exec wpaperd
 
 exec playerctld daemon
 exec wobd
-exec wl-paste --primary --watch wl-copy
 exec wl-paste --watch cliphist store
 exec mako --font ProggyVector --background-color "#3c304caa" --text-color "#ffffff" --border-color "#ffffff" --icons 1 --markup 1 --actions 1 --history 1 --default-timeout 30000 --ignore-timeout 0 --height 300
 exec_always dex -a
 exec_always kanshi
-#exec xembedsniproxy
-exec ~/Applications/appimagelauncher.AppImage appimagelauncherd
-exec_always gnome-keyring-daemon --replace --components=pkcs11,secrets,ssh
-exec_always dbus-update-activation-environment --all
 exec xsettingsd
 exec autotiling-rs

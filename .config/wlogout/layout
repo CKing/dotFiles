@@ -6,7 +6,7 @@
 }
 {
     "label" : "hibernate",
-    "action" : "pctl hibernate",
+    "action" : "systemctl hibernate",
     "text" : "Hibernate",
     "keybind" : "h"
 }
@@ -18,19 +18,19 @@
 }
 {
     "label" : "shutdown",
-    "action" : "pctl poweroff",
+    "action" : "systemctl poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 {
     "label" : "suspend",
-    "action" : "pctl suspend",
+    "action" : "systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }
 {
     "label" : "reboot",
-    "action" : "pctl reboot",
+    "action" : "systemctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }

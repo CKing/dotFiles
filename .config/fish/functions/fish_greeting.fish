@@ -67,5 +67,10 @@ function _fish_greeting_contexts_all
 		echo ide
 		echo jetbrains
 	end
+
+	if echo $TERM_PROGRAM | grep Jetbrains >/dev/null
+		echo ide
+		echo jetbrains
+	end
 end
 

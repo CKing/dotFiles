@@ -46,6 +46,7 @@
 	noprefix = true
 	colorMoved = default
 	compactionHeuristic = true
+	tool = difftastic
 [cola]
 	spellcheck = false
 [color "diff"]
@@ -53,8 +54,13 @@
 [merge]
 	log = true
 	conflictstyle = diff3
+	tool = nvimdiff
 [mergetool]
 	prompt = false
+[difftool]
+	prompt = false
+[pager]
+	difftool = true
 [rebase]
 	autosquash = true
 	autostash = true
@@ -77,3 +83,10 @@
 	diffFilter = delta --color-only
 [delta]
 	navvigate = true
+[merge "mergiraf"]
+    name = mergiraf
+    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
+[difftool "difftastic"]
+    cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+[mergetool "nvimdiffx"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
