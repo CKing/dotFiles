@@ -1,3 +1,4 @@
 .ssh/id_ed25519
 .ssh/id_ed25519_sk
 .config/keepassxc/keepassxc.ini
+.local/share/gnupg/private-keys-v1.d/*

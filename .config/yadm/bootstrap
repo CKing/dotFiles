@@ -9,7 +9,8 @@ cd "$yadm"
 
 install_package yadm neovim eza pet fish fastfetch keychain zoxide bat
 
-yadm submodule update --init --recursive
+. "$HOME"/.profile
+
 yadm decrypt
 yadm remote set-url origin git@github.com:cking/dotfiles.git
 
