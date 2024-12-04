@@ -1,3 +1,0 @@
-[submodule ".local/share/yadm/secret.git"]
-	path = .local/share/yadm/secret.git
-	url = https://z0ne.dev/kura/dotfiles-secret.git
